@@ -32,6 +32,8 @@ export function init(refWindow: any, refDocument: any, fnSendTokenToServer: FnSe
 
 
 function __initFirebase(refWindow: any, fnSendTokenToServer: FnSendTokenToServer) {
+  refWindow.FirebasePlugin.grantPermission();
+
   refWindow.FirebasePlugin.getToken((token: string) => {
     __onGetOrRefreshToken(token, fnSendTokenToServer);
   }, (err: Error) => {
